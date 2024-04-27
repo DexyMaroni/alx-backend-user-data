@@ -9,11 +9,22 @@ from flask import (
     jsonify,
     redirect
 )
-
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
 
 app = Flask(__name__)
 AUTH = Auth()
 
+Base = declarative_base()
+
+class User(Base):
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True)
+    email = Column(String, nullable=False)
+    hashed_password = Column(String, nullable=False)
+    session_id = Column(String, nullable=True)
+    reset_token = Column(String, nullable=True)
 
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index() -> str:
