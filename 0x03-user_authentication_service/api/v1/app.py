@@ -26,6 +26,10 @@ class User(Base):
     session_id = Column(String, nullable=True)
     reset_token = Column(String, nullable=True)
 
+    def __repr__(self):
+...        return "<User(name='%s', fullname='%s', nickname='%s')>" % (
+...                             self.name, self.fullname, self.nickname)
+
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index() -> str:
     """
