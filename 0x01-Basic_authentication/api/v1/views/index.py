@@ -7,7 +7,7 @@ from models.user import User
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
-def status() -> str:
+def status(str):
     """GET /api/v1/status
     Return:
       - the status of the API
@@ -16,7 +16,7 @@ def status() -> str:
 
 
 @app_views.route('/stats/', strict_slashes=False)
-def stats() -> str:
+def stats(str):
     """GET /api/v1/stats
     Return:
       - the number of each objects
@@ -27,7 +27,7 @@ def stats() -> str:
 
 
 @app_views.route('/unauthorized/', strict_slashes=False)
-def unauthorized() -> None:
+def unauthorized(None):
     """GET /api/v1/unauthorized
     Return:
       - unauthorized error
@@ -36,7 +36,7 @@ def unauthorized() -> None:
 
 
 @app_views.route('/forbidden/', strict_slashes=False)
-def forbidden() -> None:
+def forbidden(None):
     """GET /api/v1/forbidden
     Return:
       - forbidden error
